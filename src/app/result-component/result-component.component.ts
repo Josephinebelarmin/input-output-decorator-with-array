@@ -7,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ResultComponentComponent implements OnInit {
 
-  @Input() username ='';
-  @Input() Address = '';
+ 
   @Input() result: any;
 
 //  @Input() element: {username: string, Address: string, Dob: String}
@@ -17,7 +16,8 @@ export class ResultComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("username received in result: "  + this.username);
+    
   }
 
+  
 }

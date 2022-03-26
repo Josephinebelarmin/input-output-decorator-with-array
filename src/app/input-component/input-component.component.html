@@ -1,6 +1,6 @@
 
 <div class="row">
     <input type="text"
-   ngModel (ngModelChange) = "sendInputtoApp($event)">
+   [(ngModel)]="inputText" (change) = "sendInputtoApp()">
 </div>
 

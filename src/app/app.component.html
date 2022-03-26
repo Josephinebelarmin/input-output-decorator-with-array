@@ -1,42 +1,48 @@
-
-
-<div class="row" *ngIf = "showInput">
-  <label >From App component</label>
+<!-- *ngIf = "showInput" -->
+<div class="row">
+  <label>From App component</label>
   <div class="container">
     <div class="row">
       <div class="col-xs 12">
+{{username}} test
+<ng-container *ngIf ='!showResult'>
+  <label>Name</label>
+  <app-input-component (textChanged)="onReceivedName($event)" 
+  [inputText]="username"></app-input-component>
+  <label>Address</label>
+  <app-input-component (textChanged)="onReceivedAddress($event)"
+  [inputText]="Address"></app-input-component>
+  <label>DOB</label>
+  <app-input-component (textChanged)="onReceivedDob($event)"
+  [inputText]="Dob"></app-input-component>
 
-        <label >Name</label>
-  <app-input-component
-  (textChanged) = "onReceivedName($event)"></app-input-component>
-  <label >Address</label>
-  <app-input-component
-  (textChanged) ="onReceivedAddress($event)"></app-input-component>
-  <label >DOB</label>
-  <app-input-component
-  (textChanged) ="onReceivedDob($event)"></app-input-component>
-  <div>
-  <button class="btn btn-primary"
-  (click) = "onSave()">Save</button>
-</div>
-</div>
+</ng-container>
 
+        <div>
+          <button class="btn btn-primary" (click)="onSave($event)">Add Records</button>
+
+          <button class="btn btn-info" (click)="viewRecords()">view Records </button>
+        </div>
       </div>
+
     </div>
   </div>
-  
+</div>
+<!-- *ngFor = "let eachRecord of records" -->
 <div class="container">
-    <div class="row">
-      <app-result-component
-      *ngIf = "showResult"
-    
-       [result]="result"
-      >Data Stored Successfully</app-result-component>
-    </div>
-  </div> 
+  <div class="row">
+    <ng-container *ngIf="showResult">
+      <div>
+        <app-result-component *ngFor="let eachRecord of records" 
+        [result]="eachRecord">Data Stored Successfully
+        </app-result-component>
+      </div>
+    </ng-container>
+  </div>
+</div>
 
-  
-  <!-- <div class="container">
+
+<!-- <div class="container">
     <div class="row">
       <app-result-component
       *ngIf = "showResult"

@@ -7,15 +7,16 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'homeassign2';
-//  element = [{username: String, Address: String, Dob: String}]
  
   username = '';
   Address = '';
   Dob ='';
 
   showResult = false;
-  showInput = true;
   result: any = {};
+  records:any [] = [];
+
+  // records:any [] = [{Name: 'josephine', Address: 'jersey city', DOB: 'Feb 25'}];
   onReceivedName(name:any){
     console.log("text Received  " +name);
         this.username = name;
@@ -24,16 +25,24 @@ export class AppComponent {
     console.log("Address Received is  " + address);
         this.Address = address;
   }
-  onReceivedDob(event:any){
-    console.log("Dob Received is  " + event);
-        this.Dob = event;
+  onReceivedDob(Dob:any){
+    console.log("Dob Received is  " + Dob);
+        this.Dob = Dob;
   }
 
-  onSave(){
-    this.showResult =true;
-    this.showInput =false;
+  onSave(event:any){
+    console.log(event);
     this.result = {username: this.username, Address: this.Address, Dob:this.Dob}
+    this.records.push(this.result)
+    this.username = '';
+    this.Address = '';
+    this.Dob = '';
     console.log(this.username + "  is saved")
+  }
+
+  viewRecords(){
+    this.showResult = !this.showResult;
+    console.log(this.records);
   }
 }
 
