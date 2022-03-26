@@ -1,0 +1,48 @@
+
+
+<div class="row" *ngIf = "showInput">
+  <label >From App component</label>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs 12">
+
+        <label >Name</label>
+  <app-input-component
+  (nameEmitter) = "onReceivedName($event)"></app-input-component>
+  <label >Address</label>
+  <app-input-component
+  (AddressEmitter) ="onReceivedAddress($event)"></app-input-component>
+  <label >DOB</label>
+  <app-input-component
+  (DOBEmitter) ="onReceivedDob($event)"></app-input-component>
+  <div>
+  <button class="btn btn-primary"
+  (click) = "onSave()">Save</button>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+<div class="container">
+    <div class="row">
+      <app-result-component
+      *ngIf = "showResult"
+       [username] = 'username'
+       [Address]= 'Address'
+       [Dob] = 'Dob'
+      >Data Stored Successfully</app-result-component>
+    </div>
+  </div> 
+
+  
+  <!-- <div class="container">
+    <div class="row">
+      <app-result-component
+      *ngIf = "showResult"
+*ngFor = "let resultElement of resultelements"
+[element] = 'resultElement'
+      ></app-result-component>
+    </div>
+  </div> -->
