@@ -9,7 +9,7 @@ export class ResultComponentComponent implements OnInit {
 
   @Input() username ='';
   @Input() Address = '';
-  @Input() Dob = '';
+  @Input() result: any;
 
 //  @Input() element: {username: string, Address: string, Dob: String}
   constructor() { 

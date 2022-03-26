@@ -8,13 +8,13 @@
 
         <label >Name</label>
   <app-input-component
-  (nameEmitter) = "onReceivedName($event)"></app-input-component>
+  (textChanged) = "onReceivedName($event)"></app-input-component>
   <label >Address</label>
   <app-input-component
-  (AddressEmitter) ="onReceivedAddress($event)"></app-input-component>
+  (textChanged) ="onReceivedAddress($event)"></app-input-component>
   <label >DOB</label>
   <app-input-component
-  (DOBEmitter) ="onReceivedDob($event)"></app-input-component>
+  (textChanged) ="onReceivedDob($event)"></app-input-component>
   <div>
   <button class="btn btn-primary"
   (click) = "onSave()">Save</button>
@@ -29,9 +29,8 @@
     <div class="row">
       <app-result-component
       *ngIf = "showResult"
-       [username] = 'username'
-       [Address]= 'Address'
-       [Dob] = 'Dob'
+    
+       [result]="result"
       >Data Stored Successfully</app-result-component>
     </div>
   </div> 

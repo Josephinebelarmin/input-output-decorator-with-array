@@ -15,6 +15,7 @@ export class AppComponent {
 
   showResult = false;
   showInput = true;
+  result: any = {};
   onReceivedName(name:any){
     console.log("text Received  " +name);
         this.username = name;
@@ -31,6 +32,7 @@ export class AppComponent {
   onSave(){
     this.showResult =true;
     this.showInput =false;
+    this.result = {username: this.username, Address: this.Address, Dob:this.Dob}
     console.log(this.username + "  is saved")
   }
 }
